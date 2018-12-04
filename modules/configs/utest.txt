@@ -1,0 +1,5 @@
+close all; clc; clear all; 
+
+ID = 'img_5976';
+datapaths = configPaths(); 
+instanceData =  loadInstance(datapaths,ID);
