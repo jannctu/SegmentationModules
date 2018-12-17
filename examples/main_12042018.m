@@ -24,14 +24,20 @@ real_depth = double(instanceData.depth) .* opt.depth_to_z;
 pcd = DepthtoPoints(real_depth);
 ptCloud = pointCloud(pcd);
 ptCloud.Color = instanceData.im;
-
-%[g density normals] = compute_gradient(z,real_depth,pcd,opt);
-normals = pcnormals(ptCloud,6);
 sampledistance = 5;
-%[ fx ] = visualizeNormalMap(ptCloud,normals,sampledistance );
+%% MY NORMAL 
+% [g density mynormals] = compute_gradient(z,real_depth,pcd,opt);
+% figure; imshow(mynormals);
+% [ myfx ] = visualizeNormalMap(ptCloud,mynormals,sampledistance );
 
-
+%% MATLAB NORMAL 
+% MatlabNormals = pcnormals(ptCloud,6);
+% figure; imshow(MatlabNormals);
+% [ fx,returnnormal] = visualizeNormalMap(ptCloud,MatlabNormals,sampledistance );
+%figure; imshow(returnnormal);
+%% HHA NORMAL 
 addpath(genpath('../modules/hha'));
-[ N ] = normalfromhhacode( instanceData.depth,instanceData.depth );
-[ fx ] = visualizeNormalMap(ptCloud,N,sampledistance );
+[ HHANormal ] = normalfromhhacode( instanceData.depth,instanceData.depth );
+figure; imshow(HHANormal);
+[ hhafx,returnnormal ] = visualizeNormalMap(ptCloud,HHANormal,sampledistance );
 

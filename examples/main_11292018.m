@@ -7,7 +7,7 @@ addpath('../modules/fillupregion');
 addpath('../modules/ucmsp');
 %% INITIAL CONFIGS
 datapaths = configPaths();
-ID = 'img_5001'; % filename
+ID = 'img_5976'; % filename
 instanceData =  loadInstance(datapaths,ID); 
 cmap = randomcolormap();
 kernelparams = lowpasskernels();
@@ -60,8 +60,8 @@ pcd = DepthtoPoints(real_depth);
 ptCloud = pointCloud(pcd);
 %[g density normals] = compute_gradient(z,real_depth,pcd,opt);
 addpath(genpath('../modules/hha'));
-[ normals ] = normalfromhhacode( instanceData.depth,instanceData.depth );
-%normals = pcnormals(ptCloud,6);
+%[ normals ] = normalfromhhacode( instanceData.depth,instanceData.depth );
+normals = pcnormals(ptCloud,6);
 
 % x = ptCloud.Location(1:10:end,1:10:end,1);
 % y = ptCloud.Location(1:10:end,1:10:end,2);

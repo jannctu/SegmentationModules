@@ -1,4 +1,4 @@
-function [ fx ] = visualizeNormalMap( ptCloud,normals,s )
+function [ fx,normal ] = visualizeNormalMap( ptCloud,normals,s )
 %VISUALIZENORMALMAP Summary of this function goes here
 %   Detailed explanation goes here
     %sampledistance
@@ -35,7 +35,7 @@ function [ fx ] = visualizeNormalMap( ptCloud,normals,s )
            w(k) = -w(k);
        end
     end
-    
+    normal = cat(3,u,v,w);
     figure(fx)
     pcshow(ptCloud)
     title('Adjusted Normals of Point Cloud')
