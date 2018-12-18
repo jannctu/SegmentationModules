@@ -18,7 +18,7 @@ for k=1:precision
     Iedge(borders) = Iedge(borders) + 1;
 end
   
-
-figure(103); 
+unique(Iedge)
+figure(103);
 Iedge=precision-Iedge;
 imshow(Iedge,[0 precision]);
