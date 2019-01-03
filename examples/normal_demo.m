@@ -1,8 +1,8 @@
 clear all; clc; close all; 
 
 addpath(genpath('../Modules/hha/'))
-im =  imread('../data/000000_mlt.png');
-depth =  imread('../data/000000_depth.png');
+im =  imread('../data/0004d52d1aeeb8ae6de39d6bd993e992/000000_mlt.png');
+depth =  imread('../data/0004d52d1aeeb8ae6de39d6bd993e992/000000_depth.png');
 %% load modules
 addpath('../modules/utils');
 addpath('../modules/params');
@@ -16,9 +16,9 @@ ptCloud = pointCloud(pcd);
 ptCloud.Color = im;
 sampledistance = 5;
 %% MY NORMAL 
-%[g density mynormals] = compute_gradient(depth,real_depth,pcd,opt);
-%figure; imshow(mynormals);
-%[ myfx ] = visualizeNormalMap(ptCloud,mynormals,sampledistance );
+% [g density mynormals] = compute_gradient(depth,real_depth,pcd,opt);
+% figure; imshow(mynormals);
+% [ myfx ] = visualizeNormalMap(ptCloud,mynormals,sampledistance );
 
 %% MATLAB NORMAL 
 %MatlabNormals = pcnormals(ptCloud,6);
